@@ -21,8 +21,8 @@ export interface NumeralSettings {
 	lowercase: boolean;
 	/** Recognise IX. A lone X is never a numeral, as it is too often maths. */
 	nine: boolean;
-	/** Show the numbers of numbered lists as numerals, on screen only: `2.` looks like `Ⅱ.`. */
-	numberedLists: boolean;
+	/** Show the numbers of numbered lists as numerals, on screen only: `2.` looks like `Ⅱ.` or `ⅱ.`. */
+	numberedLists: "off" | "uppercase" | "lowercase";
 }
 
 /** The text that should take the place of `from`–`to` in a note. */
@@ -55,16 +55,17 @@ export function toNumeral(token: string, settings: NumeralSettings): string | nu
 	if (token !== upper && !isLower) return null;
 	if (isLower && !settings.lowercase) return null;
 
-	const index = NUMERALS.indexOf(upper);
-	if (index === -1 || (upper === "IX" && !settings.nine)) return null;
-
-	return String.fromCodePoint((isLower ? LOWERCASE_ONE : UPPERCASE_ONE) + index);
+	return numeralFor(NUMERALS.indexOf(upper) + 1, isLower, settings);
 }
 
-/** Returns the numeral character for a number from one to nine, or null for any other number. */
+/** Returns the numeral character a numbered list shows for a number, or null if it stays a number. */
 export function numberToNumeral(value: number, settings: NumeralSettings): string | null {
-	const token = NUMERALS[value - 1];
-	return token ? toNumeral(token, settings) : null;
+	return numeralFor(value, settings.numberedLists === "lowercase", settings);
+}
+
+function numeralFor(value: number, lowercase: boolean, settings: NumeralSettings): string | null {
+	if (value < 1 || value > NUMERALS.length || (value === 9 && !settings.nine)) return null;
+	return String.fromCodePoint((lowercase ? LOWERCASE_ONE : UPPERCASE_ONE) + value - 1);
 }
 
 /**
@@ -129,7 +130,7 @@ export function findNumerals(note: string, settings: NumeralSettings): Match[] {
  * a numbered list if the file held `Ⅱ.`.
  */
 export function findNumberedLists(note: string, settings: NumeralSettings): Match[] {
-	if (!settings.numberedLists) return [];
+	if (settings.numberedLists === "off") return [];
 	const matches: Match[] = [];
 
 	for (const { line, lineStart } of proseLines(note)) {

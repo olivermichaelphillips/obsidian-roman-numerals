@@ -11,7 +11,7 @@ const settings: NumeralSettings = {
 	suffix: "}",
 	lowercase: false,
 	nine: true,
-	numberedLists: true,
+	numberedLists: "uppercase",
 };
 
 type Matches = typeof findNumerals;
@@ -120,7 +120,9 @@ test("numbered lists from one to nine show as numerals", () => {
 	assert.equal(lists("1. One\n2) Two\n  3. Nested\n> 4. Quoted"), "Ⅰ. One\nⅡ) Two\n  Ⅲ. Nested\n> Ⅳ. Quoted");
 	assert.equal(lists("9. Nine\n10. Ten\n0. Zero"), "Ⅸ. Nine\n10. Ten\n0. Zero");
 	assert.equal(lists("9. Nine", { nine: false }), "9. Nine");
-	assert.equal(lists("1. One", { numberedLists: false }), "1. One");
+	assert.equal(lists("1. One", { numberedLists: "off" }), "1. One");
+	assert.equal(lists("1. One\n2. Two", { numberedLists: "lowercase" }), "ⅰ. One\nⅱ. Two");
+	assert.equal(lists("1. One", { numberedLists: "lowercase", lowercase: false }), "ⅰ. One");
 	assert.equal(lists("1.5 is a number\n2.no space\n```\n3. code\n```"), "1.5 is a number\n2.no space\n```\n3. code\n```");
 });
 
