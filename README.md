@@ -6,6 +6,14 @@ Write `## IV. Methods` and see **## Ⅳ. Methods**.
 
 Unicode has its own characters for Roman numerals (Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ), separate from the letters I, V and X. This plugin shows your numerals as those characters in a serif face, so section numbers stand apart from ordinary text the way they do in academic writing.
 
+## Why I built this
+
+Academic papers, textbooks and formal reports have long numbered their sections with Roman numerals: Ⅰ. Introduction, Ⅱ. Methods, Ⅲ. Results. The numeral tells you at a glance that this is a section, not a quantity, a step or a list item. I wanted my notes to read the same way, with the structure separate from the numbers in the text.
+
+Markdown has no way to do this. Typing `IV` gives you the letters I and V, which look like any other word, and numbered lists only come as 1, 2, 3. Unicode has proper numeral characters, but they're awkward to type, and some other Markdown apps and tools don't treat them the same way.
+
+So this plugin lets you type plain letters and see real numerals. Your notes stay ordinary Markdown that reads correctly anywhere, and Obsidian shows them with the more formal headings and lists used in academic work.
+
 ## Two modes
 
 ![The same note as written and as shown](assets/screenshot.png)
