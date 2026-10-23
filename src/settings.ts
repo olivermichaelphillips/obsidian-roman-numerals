@@ -20,7 +20,7 @@ export const DEFAULT_SETTINGS: Settings = {
 	suffix: "}",
 	lowercase: false,
 	nine: true,
-	numberedLists: false,
+	numberedLists: true,
 };
 
 type Key = keyof Settings;
