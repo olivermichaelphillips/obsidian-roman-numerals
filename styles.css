@@ -6,7 +6,7 @@
 	font-family: var(--roman-numeral-font, "Times New Roman", Times, serif);
 }
 
-/* Numbered list items in Reading view, numbered from Ⅰ to Ⅸ. */
+/* Numbered list items in Reading view, numbered from ⅰ to ⅸ. */
 li[data-roman-numeral]::marker {
 	content: attr(data-roman-numeral);
 	font-family: var(--roman-numeral-font, "Times New Roman", Times, serif);

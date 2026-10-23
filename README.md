@@ -51,14 +51,14 @@ This version covers one to nine (I to IX). A lone X is never converted, only the
 
 ## Numbered lists
 
-Set **Numbered lists** to Uppercase or Lowercase to show an ordinary numbered list with numerals:
+Turn on **Numbered lists** to show an ordinary numbered list with lowercase numerals:
 
 ```
-1. First point      →   Ⅰ. First point      or   ⅰ. First point
-2. Second point     →   Ⅱ. Second point     or   ⅱ. Second point
+1. First point      →   ⅰ. First point
+2. Second point     →   ⅱ. Second point
 ```
 
-Lowercase pairs well with uppercase headings, as in academic outlines.
+These pair well with uppercase headings, as in academic outlines.
 
 This is always on screen only, in both modes. Your note keeps `1.` and `2.`, so every Markdown app still sees a numbered list. Numbers from 10 on stay as numbers. Numbered lists in Reading view haven't been tested on iPhone or iPad yet.
 
@@ -84,7 +84,7 @@ Search matches what is in the file, so in write mode search for `Ⅳ` rather tha
 | Marker prefix / suffix | `{` / `}` | Both are needed, and can't contain I, V or X |
 | Include IX | On | Recognise IX as nine |
 | Lowercase | Off | Also recognise `i.`, `ii.` … as ⅰ ⅱ … |
-| Numbered lists | Off | Show `1.` to `9.` in numbered lists as Ⅰ. to Ⅸ. (uppercase) or ⅰ. to ⅸ. (lowercase) |
+| Numbered lists | Off | Show `1.` to `9.` in numbered lists as ⅰ. to ⅸ. |
 
 Reading view picks up setting changes the next time a note is opened.
 

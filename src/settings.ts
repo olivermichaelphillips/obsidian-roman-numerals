@@ -20,7 +20,7 @@ export const DEFAULT_SETTINGS: Settings = {
 	suffix: "}",
 	lowercase: false,
 	nine: true,
-	numberedLists: "off",
+	numberedLists: false,
 };
 
 type Key = keyof Settings;
@@ -95,12 +95,8 @@ export class RomanNumeralsSettingTab extends PluginSettingTab {
 					},
 					{
 						name: "Numbered lists",
-						desc: "Show numbered lists as Ⅰ. Ⅱ. Ⅲ. or ⅰ. ⅱ. ⅲ. instead of 1. 2. 3. This is on screen only, in both modes, so the note stays a numbered list in other apps. Numbers from 10 stay as they are.",
-						control: {
-							type: "dropdown",
-							key: "numberedLists",
-							options: { off: "Off", uppercase: "Uppercase", lowercase: "Lowercase" },
-						},
+						desc: "Show numbered lists as ⅰ. ⅱ. ⅲ. instead of 1. 2. 3. This is on screen only, in both modes, so the note stays a numbered list in other apps. Numbers from 10 stay as they are.",
+						control: { type: "toggle", key: "numberedLists" },
 					},
 				],
 			},
