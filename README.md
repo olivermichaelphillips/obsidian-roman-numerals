@@ -51,7 +51,7 @@ This version covers one to nine (I to IX). A lone X is never converted, only the
 
 ## Numbered lists
 
-Turn on **Numbered lists** to show an ordinary numbered list with lowercase numerals:
+By default, an ordinary numbered list shows with lowercase numerals. Turn off **Numbered lists** to keep 1, 2, 3:
 
 ```
 1. First point      →   ⅰ. First point
@@ -84,7 +84,7 @@ Search matches what is in the file, so in write mode search for `Ⅳ` rather tha
 | Marker prefix / suffix | `{` / `}` | Both are needed, and can't contain I, V or X |
 | Include IX | On | Recognise IX as nine |
 | Lowercase | Off | Also recognise `i.`, `ii.` … as ⅰ ⅱ … |
-| Numbered lists | Off | Show `1.` to `9.` in numbered lists as ⅰ. to ⅸ. |
+| Numbered lists | On | Show `1.` to `9.` in numbered lists as ⅰ. to ⅸ. |
 
 Reading view picks up setting changes the next time a note is opened.
 
