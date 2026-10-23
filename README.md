@@ -92,7 +92,7 @@ body {
 
 ## Installing
 
-Until it is in the community list, either add `olivermichaelphillips/roman-numerals` to [BRAT](https://github.com/TfTHacker/obsidian42-brat), or download `main.js`, `manifest.json` and `styles.css` from the latest release into `<vault>/.obsidian/plugins/roman-numerals/`, then turn the plugin on under **Settings → Community plugins**.
+Until it is in the community list, either add `olivermichaelphillips/obsidian-roman-numerals` to [BRAT](https://github.com/TfTHacker/obsidian42-brat), or download `main.js`, `manifest.json` and `styles.css` from the latest release into `<vault>/.obsidian/plugins/roman-numerals/`, then turn the plugin on under **Settings → Community plugins**.
 
 ## Development
 
