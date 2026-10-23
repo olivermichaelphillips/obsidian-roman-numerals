@@ -44,7 +44,7 @@ class NumeralWidget extends WidgetType {
  */
 export function editorNumerals(settings: NumeralSettings, render: boolean) {
 	// The cursor and the editor mode only matter when numerals are being drawn.
-	const draws = render || settings.numberedLists !== "off";
+	const draws = render || settings.numberedLists;
 
 	return ViewPlugin.fromClass(
 		class {
@@ -100,7 +100,7 @@ export function editorNumerals(settings: NumeralSettings, render: boolean) {
 export function readingViewNumerals(section: HTMLElement, settings: NumeralSettings, render: boolean): void {
 	if (render) drawLetterNumerals(section, settings);
 
-	if (settings.numberedLists !== "off") drawListNumbers(section, settings);
+	if (settings.numberedLists) drawListNumbers(section, settings);
 
 	for (const node of textNodes(section)) {
 		if (node.parentElement?.closest(`code, pre, .math, .${NUMERAL_CLASS}`)) continue;

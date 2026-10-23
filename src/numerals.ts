@@ -21,8 +21,8 @@ export interface NumeralSettings {
 	lowercase: boolean;
 	/** Recognise IX. A lone X is never a numeral, as it is too often maths. */
 	nine: boolean;
-	/** Show the numbers of numbered lists as numerals, on screen only: `2.` looks like `Ⅱ.` or `ⅱ.`. */
-	numberedLists: "off" | "uppercase" | "lowercase";
+	/** Show the numbers of numbered lists as lowercase numerals, on screen only: `2.` looks like `ⅱ.`. */
+	numberedLists: boolean;
 }
 
 /** The text that should take the place of `from`–`to` in a note. */
@@ -60,7 +60,7 @@ export function toNumeral(token: string, settings: NumeralSettings): string | nu
 
 /** Returns the numeral character a numbered list shows for a number, or null if it stays a number. */
 export function numberToNumeral(value: number, settings: NumeralSettings): string | null {
-	return numeralFor(value, settings.numberedLists === "lowercase", settings);
+	return numeralFor(value, true, settings);
 }
 
 function numeralFor(value: number, lowercase: boolean, settings: NumeralSettings): string | null {
@@ -125,12 +125,12 @@ export function findNumerals(note: string, settings: NumeralSettings): Match[] {
 
 /**
  * Finds the numbers one to nine that start numbered list items, paired with
- * the numerals to show in their place: `2.` becomes `Ⅱ.`. These are only
+ * the numerals to show in their place: `2.` becomes `ⅱ.`. These are only
  * ever drawn on screen, because other Markdown editors would no longer see
- * a numbered list if the file held `Ⅱ.`.
+ * a numbered list if the file held `ⅱ.`.
  */
 export function findNumberedLists(note: string, settings: NumeralSettings): Match[] {
-	if (settings.numberedLists === "off") return [];
+	if (!settings.numberedLists) return [];
 	const matches: Match[] = [];
 
 	for (const { line, lineStart } of proseLines(note)) {

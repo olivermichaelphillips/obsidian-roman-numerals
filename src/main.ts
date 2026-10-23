@@ -13,6 +13,9 @@ export default class RomanNumeralsPlugin extends Plugin {
 
 	async onload() {
 		Object.assign(this.settings, await this.loadData());
+		// Numbered lists used to offer "off", "uppercase" or "lowercase"; now they are lowercase or off.
+		const lists: unknown = this.settings.numberedLists;
+		if (typeof lists === "string") this.settings.numberedLists = lists !== "off";
 
 		this.registerEditorExtension(this.editorExtensions);
 		this.updateEditors();
