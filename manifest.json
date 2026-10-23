@@ -1,7 +1,7 @@
 {
 	"id": "roman-numerals",
 	"name": "Roman Numerals",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"minAppVersion": "1.13.0",
 	"description": "Show Roman numerals in headings and lists as true numeral characters (Ⅰ Ⅱ Ⅲ), either on screen only or written into the note.",
 	"author": "olivermichaelphillips",
