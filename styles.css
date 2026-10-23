@@ -1,0 +1,13 @@
+/*
+ * Numeral characters in a serif face, so Ⅳ stands apart from the letters IV.
+ * Override --roman-numeral-font in a CSS snippet to choose another font.
+ */
+.roman-numeral {
+	font-family: var(--roman-numeral-font, "Times New Roman", Times, serif);
+}
+
+/* Numbered list items in Reading view, numbered from Ⅰ to Ⅸ. */
+li[data-roman-numeral]::marker {
+	content: attr(data-roman-numeral);
+	font-family: var(--roman-numeral-font, "Times New Roman", Times, serif);
+}
